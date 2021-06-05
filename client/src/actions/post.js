@@ -24,7 +24,7 @@ export const getPosts = () => async dispatch => {
 // Add a Like
 export const addLike = (id) => async dispatch => {          //pass in the post's id to like it
   try {
-    const res = await axios.put(`/api/posts/like/${id}`);              //put request since we're updating
+    const res = await axios.put(`${host.url}/api/posts/like/${id}`);              //put request since we're updating
     
     dispatch({
       type: UPDATE_LIKES,
@@ -42,7 +42,7 @@ export const addLike = (id) => async dispatch => {          //pass in the post's
 // Remove a Like
 export const removeLike = (id) => async dispatch => {
   try {
-    const res = await axios.put(`/api/posts/unlike/${id}`);
+    const res = await axios.put(`${host.url}/api/posts/unlike/${id}`);
     
     dispatch({
       type: UPDATE_LIKES,
@@ -60,7 +60,7 @@ export const removeLike = (id) => async dispatch => {
 // Delete a Post
 export const deletePost = (id) => async dispatch => {
   try {
-    await axios.delete(`/api/posts/${id}`);
+    await axios.delete(`${host.url}/api/posts/${id}`);
     
     dispatch({
       type: DELETE_POST,
@@ -107,7 +107,7 @@ export const addPost = (formData) => async dispatch => {
 // Get a post
 export const getPost = (id) => async dispatch => {
   try {
-    const res = await axios.get(`/api/posts/${id}`);
+    const res = await axios.get(`${host.url}/api/posts/${id}`);
     
     dispatch({
       type: GET_POST,
@@ -132,7 +132,7 @@ export const addComment = (postId, formData) => async dispatch => {
   }
   
   try {
-    const res = await axios.post(`/api/posts/comment/${postId}`, formData, config);
+    const res = await axios.post(`${host.url}/api/posts/comment/${postId}`, formData, config);
     
     dispatch({
       type: ADD_COMMENT,
@@ -153,7 +153,7 @@ export const addComment = (postId, formData) => async dispatch => {
 export const deleteComment = (postId, commentId) => async dispatch => {
   
   try {
-    await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+    await axios.delete(`${host.url}/api/posts/comment/${postId}/${commentId}`);
     
     dispatch({
       type: REMOVE_COMMENT,
