@@ -1,1 +1,1 @@
-export const host = 'https://dev2-ash.herokuapp.com';
+export const host = process.env.NODE_ENV=='development'? `http://localhost:5000`:`https://dev2-ash.herokuapp.com`;
