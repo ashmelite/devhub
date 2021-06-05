@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { setAlert } from './alert'
 import { ADD_COMMENT, ADD_POST, DELETE_POST, GET_POST, GET_POSTS, POST_ERROR, REMOVE_COMMENT, UPDATE_LIKES } from './types'
+import {host} from './host'
 
 // Get posts
 export const getPosts = () => async dispatch => {
   try {
-    const res = await axios.get('/api/posts');
+    const res = await axios.get(host.url+'/api/posts');
     
     dispatch({
       type: GET_POSTS,
@@ -86,7 +87,7 @@ export const addPost = (formData) => async dispatch => {
   }
   
   try {
-    const res = await axios.post('/api/posts', formData, config);
+    const res = await axios.post(host.url+'/api/posts', formData, config);
     
     dispatch({
       type: ADD_POST,

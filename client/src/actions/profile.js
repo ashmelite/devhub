@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 import { GET_PROFILE, GET_PROFILES, CLEAR_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, DELETE_ACCOUNT, GET_REPOS, RESET_PINGED2, VIEW_PROFILE } from './types';
-
+import {host} from './host'
 //Get current user's profile
 export const getCurrentProfile = () => async dispatch => {
   
   try {
-    const res = await axios.get('/api/profile/me');
+    const res = await axios.get(host.url+'/api/profile/me');
     
     dispatch({
       type: GET_PROFILE,
@@ -29,7 +29,7 @@ export const getProfiles = () => async dispatch => {
   dispatch({ type: RESET_PINGED2 });          //instead run this
   
   try {
-    const res = await axios.get('/api/profile');
+    const res = await axios.get(host.url+'/api/profile');
     
     dispatch({
       type: GET_PROFILES,
@@ -94,7 +94,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
       }
     }
     
-    const res = await axios.post('/api/profile', formData, config);
+    const res = await axios.post(host.url+'/api/profile', formData, config);
     
     dispatch({
       type: GET_PROFILE,
@@ -132,7 +132,7 @@ export const addExperience = (formData, history) => async dispatch => {
       }
     }
     
-    const res = await axios.put('/api/profile/experience', formData, config);
+    const res = await axios.put(host.url+'/api/profile/experience', formData, config);
     
     dispatch({
       type: UPDATE_PROFILE,
@@ -168,7 +168,7 @@ export const addEducation = (formData, history) => async dispatch => {
       }
     }
     
-    const res = await axios.put('/api/profile/education', formData, config);
+    const res = await axios.put(host.url+'/api/profile/education', formData, config);
     
     dispatch({
       type: UPDATE_PROFILE,
@@ -245,7 +245,7 @@ export const deleteAccount = () => async dispatch => {
   if(window.confirm('Are you sure? This can not be undone!')) {
     
     try {
-      await axios.delete('/api/profile');
+      await axios.delete(host.url+'/api/profile');
       
       dispatch({
         type: CLEAR_PROFILE
