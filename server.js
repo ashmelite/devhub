@@ -1,10 +1,18 @@
 const express = require('express');
 const connectDB = require('./config/db');
+var cors = require('cors')
 
 const app = express();
 
 // Connect Database
 connectDB();
+
+const corsOptions = {
+  origin: 'https://60bb9ab2d7c460000799ffa9--distracted-sinoussi-8e54ab.netlify.app',
+  optionsSuccessStatus: 200 // For legacy browser support
+}
+
+app.use(cors(corsOptions));
 
 //Init Middleware
 app.use(express.json({ extended: false }));            //this is express's inbuilt body parser, it allows us to get 'data' into req.body 
