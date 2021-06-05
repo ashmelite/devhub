@@ -40,7 +40,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
       linkedin: loading || !profile.social ? '' : profile.social.linkedin,
       youtube: loading || !profile.social ? '' : profile.social.youtube,
       instagram: loading || !profile.social ? '' : profile.social.instagram 
-    });
+    });// eslint-disable-next-line
   }, [loading, getCurrentProfile]);    //prop we'd like to depend upon is loading. So, when the value of loading changes, useEffect runs.     //if we add profile also in this dependency array, then getcurrent profile will not run until the loading and profile both change, this will make prev logged user's details show up in new logged user's profile flash for a sec, so don't include profile here.
   
   const {
