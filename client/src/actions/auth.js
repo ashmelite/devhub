@@ -11,7 +11,7 @@ export const loadUser = () => async dispatch => {
   }
   
   try {
-    const res = await axios.get(host.url+'/api/auth');
+    const res = await axios.get(host+'/api/auth');
     
     //if response is 200(OK), dispatch the action
     if (localStorage.token) {       //dispatch is wrapped in if statement because if user logs out -> closes the tab -> re-opens the tab using Ctrl+Shift+T, USER_LOADED will get triggered and set the isAutheticated to 'true' that makes dashboard available (which is a protected route) 
@@ -41,7 +41,7 @@ export const register = ({ name, email, password }) => async dispatch => {
   const body = JSON.stringify({ name, email, password });
   
   try {
-    const res = await axios.post(host.url+'/api/users', body, config);
+    const res = await axios.post(host+'/api/users', body, config);
     
     //if axios response is 200 then dispatch the action
     dispatch({
@@ -78,7 +78,7 @@ export const login = (email, password) => async dispatch => {       //we didn't 
   const body = JSON.stringify({ email, password });
   
   try {
-    const res = await axios.post(host.url+'/api/auth', body, config);
+    const res = await axios.post(host+'/api/auth', body, config);
     
     //if axios response is 200 then dispatch the action
     dispatch({

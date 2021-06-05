@@ -1,1 +1,1 @@
-export const url = 'https://dev2-ash.herokuapp.com';
+export const host = 'https://dev2-ash.herokuapp.com';
