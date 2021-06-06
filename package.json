@@ -1,7 +1,7 @@
 {
-  "name": "devconnector",
+  "name": "devhub",
   "version": "1.0.0",
-  "description": "Social network for developers",
+  "description": "Social Hub for Developers",
   "main": "server.js",
   "scripts": {
     "start": "node server",
@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Ashu",
+  "author": "ashmelite",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
