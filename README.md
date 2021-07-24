@@ -5,8 +5,4 @@ Social Hub for Developers.
  * Learn new techniques and stuff currently trending
  * Stay up-to date with the Development Community
 
-View the project's front-end at:
-[Click 🌟](https://60bb9ab2d7c460000799ffa9--distracted-sinoussi-8e54ab.netlify.app)
-
-Play with the API at:
-[Click 💻](https://dev-ashm.herokuapp.com/)
+>This version is deprecated, a newer version called devhub-v2 is available [here](https://github.com/ashmelite/devhub-v2)!
